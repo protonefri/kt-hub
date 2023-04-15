@@ -3,8 +3,8 @@
 >
   <div #row3 class="fill" style="flex: 1">
     <ng-container *ngFor="let item of card.abilities">
-      <div style="padding-top: 0.2em;">
-        <span style="font-weight: bold;">
+      <div style="padding-top: 0.2em;line-height: 20px;">
+        <span style="font-weight: bold; ">
           {{ item.title }} -
         </span>
           <span [innerHTML]="item.description  | symReplace">
@@ -12,7 +12,7 @@
       </div>
     </ng-container>
     <ng-container *ngFor="let item of card.uniqueActions">
-      <div style="padding-top: 0.2em;">
+      <div style="padding-top: 0.2em;line-height: 20px;">
         <span  style="font-weight: bold;">
           {{ item.title }}
           <span *ngIf="item.AP">
