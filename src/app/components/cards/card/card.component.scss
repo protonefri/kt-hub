@@ -1,7 +1,9 @@
 .wrapper{
-  display: flex;
-  justify-content: space-between;
+  max-width: 1400px;
+  display: grid;
 
 }
 
-
+@media (min-width: 990px) {
+  .wrapper { grid-template-columns: repeat(2, 1fr); }
+}
