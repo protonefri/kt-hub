@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PloySelectionComponent } from './components/cards/operative/ploy-selection/ploy-selection.component';
 import { AbilitiesNotesComponent } from './components/cards/card/abilities-notes/abilities-notes.component';
 import { SymbolReplace } from './pipes/symbolReplace';
 import { CardsComponent } from './components/cards/cards.component';
@@ -15,9 +14,10 @@ import { CardComponent } from './components/cards/card/card.component';
 import { MainStatsComponent } from './components/cards/card/main-stats/main-stats.component';
 import { WeaponFormComponent } from './components/cards/card/forms/weapon-form/weapon-form.component';
 import { MainStatsFormComponent } from './components/cards/card/forms/main-stats-form/main-stats-form.component';
-import { OperativeSelectionComponent } from './components/cards/operative/operative-selection/operative-selection.component';
 import { PloyCardComponent } from './components/cards/card/ploy-card/ploy-card.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { OperativeSelectionComponent } from './components/cards/selection-forms/operative-selection/operative-selection.component';
+import { PloySelectionComponent } from './components/cards/selection-forms/ploy-selection/ploy-selection.component';
 
 @NgModule({
   declarations: [
