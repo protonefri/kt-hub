@@ -1,0 +1,13 @@
+.main-div{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  background-color: rgb(40, 47, 66);
+}
+
+span > a{
+  color: inherit;
+  text-decoration: none;
+}
+

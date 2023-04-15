@@ -1,0 +1,24 @@
+.o-name, .o-name>h1{
+  font-family: 'Anton', sans-serif;
+  color: white;
+  background-color: #c54c21;
+  font-size: 1.5em;
+}
+
+.o-stats{
+  font-family: 'Anton', sans-serif;
+
+}
+
+.o-stats > div:first-of-type{
+  padding: 1rem;
+  color: white;
+  background-color: black;
+}
+
+.o-stats > div:nth-of-type(2) {
+  padding: 1rem;
+  color: rgb(3, 1, 1);
+  background-color: rgb(209, 209, 209);
+}
+

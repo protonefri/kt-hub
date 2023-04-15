@@ -1,0 +1,127 @@
+<div class="text-center o-name">
+  <h1 class="p-3">{{ card.name === "" ? "Operative Name" : card.name }}</h1>
+</div>
+<div #row1 style="font-size: 1.8em; width: 100%;" class="f-s-b">
+  <span class="text-center w-100 o-stats">
+    <div>M</div>
+    <div>{{ card.movement }}</div>
+  </span>
+  <span class="text-center w-100 o-stats">
+    <div>APL</div>
+    <div>{{ card.APL }}</div>
+  </span>
+  <span class="text-center w-100 o-stats">
+    <div>GA</div>
+    <div>
+      {{ card.GA }}
+    </div>
+  </span>
+  <span class="text-center w-100 o-stats">
+    <div>DF</div>
+    <div>
+      {{ card.DF }}
+    </div>
+  </span>
+  <span class="text-center w-100 o-stats">
+    <div>SV</div>
+    <div>{{ card.save }}</div>
+  </span>
+  <span class="text-center w-100 o-stats">
+    <div>W</div>
+    <div>
+      {{ card.wounds }}
+    </div>
+  </span>
+</div>
+<div #row2 style="margin-top: 1em">
+  <div class="w-100" *ngFor="let item of card.weapons" style="font-size:1.2em; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div
+      *ngIf="item.profiles.length > 1"
+      class="d-flex w-100"
+      style="background-color: rgb(65, 65, 65); color: white; padding: 0.3em; width: 100%"
+    >
+      <div class="w-100">
+        <img
+          [src]="
+            item.weptype === 'M'
+              ? '/assets/pics/weptypeM.png'
+              : '/assets/pics/weptypeR.png'
+          "
+          alt="Weapon Type"
+          style="
+            height: 18px;
+            flex: 0 0 auto;
+          "
+        />
+        <span style="width: 100%; padding-left: 0.3em">
+          {{ item.wepname }}
+        </span>
+      </div>
+
+      <div
+        class="w-100"
+        *ngFor="let prof of item.profiles"
+        style="display: flex"
+      >
+        <span style="flex-grow: 10; width: 4em; padding-left: 2.2em">
+          - {{ prof.name }}
+          <span
+            *ngIf="prof.SR"
+            [innerHTML]="' (' + prof.SR + ')' | symReplace"
+          ></span>
+        </span>
+        <span style="flex-grow: 1; text-align: end">
+          {{ prof.A }}
+        </span>
+        <span style="flex-grow: 1; text-align: end">
+          {{ prof.BS }}
+        </span>
+        <span style="flex-grow: 1; text-align: end">
+          {{ prof.D }}
+        </span>
+      </div>
+    </div>
+    <div
+      *ngIf="item.profiles.length === 1"
+      class="d-flex align-items-center w-100"
+      style="
+        display: flex;
+        background-color: rgb(109, 109, 109);
+        color: white;
+        padding: 0.3em;
+      "
+    >
+      <img
+        [src]="
+          item.weptype === 'M'
+            ? '/assets/pics/weptypeM.png'
+            : '/assets/pics/weptypeR.png'
+        "
+        alt="Weapon Type"
+        style="
+          height: 18px;
+          flex: 0 0 auto;
+        "
+      />
+      <span style="flex-grow: 10; width: 4em; padding-left: 0.5em"
+        >{{ item.wepname
+        }}<span
+          *ngIf="item.profiles[0]?.SR"
+          [innerHTML]="' (' + item.profiles[0].SR + ')' | symReplace"
+        ></span
+      ></span>
+      <span style="flex-grow: 1; text-align: end">{{
+        item.profiles[0].A
+      }}</span>
+      <span style="flex-grow: 1; text-align: end">{{
+        item.profiles[0].BS
+      }}</span>
+      <span style="flex-grow: 1; text-align: end">{{
+        item.profiles[0].D
+      }}</span>
+    </div>
+  </div>
+</div>
+
+
+

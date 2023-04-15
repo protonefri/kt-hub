@@ -1,0 +1,24 @@
+<div class="text-center o-name">
+  <h1 class="p-2 black" style="background-color: black;">
+    {{ card.ploy?.ploytype === "T" ? "TACTICAL PLOY" : "STRATEGICAL PLOY" }}
+  </h1>
+
+</div>
+<div class="text-center o-name">
+
+<h1 class="p-2">
+  {{ card.ploy?.ployname === "" ? "Ploy Name" : card.ploy?.ployname }} ({{ card.ploy?.CP  }}    CP)
+</h1>
+</div>
+
+
+<div
+  style="margin-top: 1em; display: flex; flex-direction: column; padding: 0.5em"
+>
+  <div #row3 class="fill">
+    <p
+      style="flex: 1; font-weight: 500; text-justify: inter-word"
+      [innerHTML]="card.ploy?.description | symReplace"
+    ></p>
+  </div>
+</div>

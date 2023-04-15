@@ -1,0 +1,35 @@
+<div class="wrapper" style="margin-top: 1em">
+  <div>
+    <mat-card style="height: 600px; width: 550px; padding: 1em;">
+      <app-main-stats [card]="card"></app-main-stats>
+      <app-abilities-notes [card]="card"></app-abilities-notes>
+    </mat-card>
+  </div>
+
+
+  <div style="margin-left: 1em;">
+    <mat-card style="height: 600px; width: 450px; padding: 1em;">
+      <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
+      <app-weapon-form [card]="card"></app-weapon-form> -->
+      <app-operative-selection [card]="card" [ploys]="ploys"  (ployEmitter)="changePloy($event)"></app-operative-selection>
+    </mat-card>
+
+  </div>
+</div>
+
+<div class="wrapper" style="margin-top: 1em">
+  <div style="margin-top: 1em; justify-content: center;">
+    <mat-card style="height: 600px; width: 450px; padding: 1em;">
+      <app-ploy-card [card]="card"></app-ploy-card>
+    </mat-card>
+  </div>
+<div style="margin-left: 1em;">
+  <mat-card style="height: 600px; width: 450px; padding: 1em;">
+    <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
+    <app-weapon-form [card]="card"></app-weapon-form> -->
+    <app-ploy-selection [card]="card" [ploys]="ploys"  (ployEmitter)="changePloySelect($event)"></app-ploy-selection>
+  </mat-card>
+
+</div>
+
+</div>
