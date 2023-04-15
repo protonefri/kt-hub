@@ -14,10 +14,10 @@ export class SymbolReplace implements PipeTransform {
     }
 
     value = value
-      .replace(/\[PENT\]/g, '<img  style="height: 12px;" src="/assets/pics/f6.webp">')
-      .replace(/\[CIRCLE\]/g, '<img  style="height: 12px;" src="/assets/pics/f2.webp"/>')
-      .replace(/\[TRI\]/g, '<img  style="height: 12px;" src="/assets/pics/f1.webp"/>')
-      .replace(/\[SQUARE\]/g, '<img  style="height: 12px;" src="/assets/pics/f3.webp"/>');
+      .replace(/\[PENT\]/g, '<img  style="height: 16px;" src="/assets/pics/f6.webp">')
+      .replace(/\[CIRCLE\]/g, '<img  style="height: 16px;" src="/assets/pics/f2.webp"/>')
+      .replace(/\[TRI\]/g, '<img  style="height: 16px;" src="/assets/pics/f1.webp"/>')
+      .replace(/\[SQUARE\]/g, '<img  style="height: 16px;" src="/assets/pics/f3.webp"/>');
 
     return this.sanitizer.bypassSecurityTrustHtml(value);
   }
