@@ -12,6 +12,8 @@ export interface Card {
   abilities?: Abilities[],
   uniqueActions?: UniqueActions[]
   ploy?:Ploy;
+  width?:number,
+  height?:number
 }
 
 

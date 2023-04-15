@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Card, Ploy } from './card';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class CardComponent implements OnInit {
     wounds: 0,
     weapons: undefined,
     abilities : undefined,
-    uniqueActions: undefined
+    uniqueActions: undefined,
+    width:600,
+    height:600
   };
 
   ploys: Ploy[] = [
@@ -33,6 +36,10 @@ export class CardComponent implements OnInit {
     }
   ];
 
+  cssForm = new FormGroup({
+    width: new FormControl(600),
+    height: new FormControl(800),
+  });
   changePloy(event:any){
     this.ploys = event as Ploy[];
   }
