@@ -17,6 +17,7 @@ import { WeaponFormComponent } from './components/cards/card/forms/weapon-form/w
 import { MainStatsFormComponent } from './components/cards/card/forms/main-stats-form/main-stats-form.component';
 import { OperativeSelectionComponent } from './components/cards/operative/operative-selection/operative-selection.component';
 import { PloyCardComponent } from './components/cards/card/ploy-card/ploy-card.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { PloyCardComponent } from './components/cards/card/ploy-card/ploy-card.c
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
