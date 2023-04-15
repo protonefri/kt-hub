@@ -1,6 +1,6 @@
 [build]
   command = "CI='' npm run build"
-  publish = "/www"
+  publish = "dist/kt-hub"
   base ="/"
 
 [[redirects]]
