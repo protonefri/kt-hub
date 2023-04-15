@@ -4,6 +4,7 @@ import { CardsComponent } from './components/cards/cards.component';
 
 const routes: Routes = [
   { path: '', component: CardsComponent },
+  { path: 'home', component: CardsComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
