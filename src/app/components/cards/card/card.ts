@@ -65,11 +65,11 @@ export interface Weapon {
   wepname:    string;
   weptype:    string;
   isdefault:  number;
-  profiles:   Profile[];
+  profiles:   WeaponProfile[];
   isselected: boolean;
 }
 
-export interface Profile {
+export interface WeaponProfile {
   factionid:  string;
   killteamid: string;
   fireteamid: string;

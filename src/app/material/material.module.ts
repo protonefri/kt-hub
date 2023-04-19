@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialComponent } from './material.component';
 // Material Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -119,6 +118,6 @@ import { MatTableModule } from '@angular/material/table';
     MatSortModule,
     MatTableModule
   ],
-  declarations: [MaterialComponent]
+  declarations: []
 })
 export class MaterialModule { }

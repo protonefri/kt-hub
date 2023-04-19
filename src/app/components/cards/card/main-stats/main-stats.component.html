@@ -1,7 +1,7 @@
 <div class="text-center o-name">
   <h1 class="p-2">{{ card.name === "" ? "Operative Name" : card.name }}</h1>
 </div>
-<div #row1 style="font-size: 1.8em; width: 100%;" class="f-s-b">
+<div #stats style="font-size: 1.8em; width: 100%;" class="f-s-b">
   <span class="text-center w-100 o-stats">
     <div>M</div>
     <div>{{ card.movement }}</div>
@@ -33,94 +33,26 @@
     </div>
   </span>
 </div>
-<div #row2 style="margin-top: 1em">
-  <div class="w-100" *ngFor="let item of card.weapons" style="font-size:1.2em; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-    <div
-      *ngIf="item.profiles.length > 1"
-      class="d-flex w-100"
-      style="background-color: rgb(65, 65, 65); color: white; padding: 0.3em; width: 100%"
-    >
-      <div class="w-100">
-        <img
-          [src]="
-            item.weptype === 'M'
-              ? '/assets/pics/weptypeM.png'
-              : '/assets/pics/weptypeR.png'
-          "
-          alt="Weapon Type"
-          style="
-            height: 18px;
-            flex: 0 0 auto;
-          "
-        />
-        <span style="width: 100%; padding-left: 0.3em">
-          {{ item.wepname }}
-        </span>
-      </div>
 
-      <div
-        class="w-100"
-        *ngFor="let prof of item.profiles"
-        style="display: flex"
-      >
-        <span style="flex-grow: 10; width: 4em; padding-left: 2.2em">
-          - {{ prof.name }}
-          <span
-            *ngIf="prof.SR"
-            [innerHTML]="' (' + prof.SR + ')' | symReplace"
-          ></span>
-        </span>
-        <span style="flex-grow: 1; text-align: end">
-          {{ prof.A }}
-        </span>
-        <span style="flex-grow: 1; text-align: end">
-          {{ prof.BS }}
-        </span>
-        <span style="flex-grow: 1; text-align: end">
-          {{ prof.D }}
-        </span>
+<!-- WEAPONS -->
+<div #weapons style="margin-top: 1em">
+  <ng-container *ngFor="let item of card.weapons">
+    <div class="weapon-item" *ngIf="item.profiles.length > 0">
+      <div class="weapon-header">
+        <img class="weapon-type" [src]="item.weptype === 'M' ? '/assets/pics/weptypeM.png' : '/assets/pics/weptypeR.png'" alt="Weapon Type" />
+        <span class="weapon-name">{{ item.wepname }}</span>
+      </div>
+      <div class="weapon-profiles" *ngFor="let prof of item.profiles">
+        <div class="weapon-profile">
+          <span class="weapon-profile-name">{{ prof.name }}</span>
+          <span class="weapon-profile-value">{{ prof.A }}</span>
+          <span class="weapon-profile-value">{{ prof.BS }}</span>
+          <span class="weapon-profile-value">{{ prof.D }}</span>
+          <span class="weapon-profile-sr" *ngIf="prof.SR"><span [innerHTML]="prof.SR | symReplace"></span></span>
+        </div>
       </div>
     </div>
-    <div
-      *ngIf="item.profiles.length === 1"
-      class="d-flex align-items-center w-100"
-      style="
-        display: flex;
-        background-color: rgb(65, 65, 65);
-        color: white;
-        padding: 0.3em;
-      "
-    >
-      <img
-        [src]="
-          item.weptype === 'M'
-            ? '/assets/pics/weptypeM.png'
-            : '/assets/pics/weptypeR.png'
-        "
-        alt="Weapon Type"
-        style="
-          height: 18px;
-          flex: 0 0 auto;
-        "
-      />
-      <span style="flex-grow: 10; width: 4em; padding-left: 0.5em"
-        >{{ item.wepname
-        }}<span
-          *ngIf="item.profiles[0]?.SR"
-          [innerHTML]="' (' + item.profiles[0].SR + ')' | symReplace"
-        ></span
-      ></span>
-      <span style="flex-grow: 1; text-align: end">{{
-        item.profiles[0].A
-      }}</span>
-      <span style="flex-grow: 1; text-align: end">{{
-        item.profiles[0].BS
-      }}</span>
-      <span style="flex-grow: 1; text-align: end">{{
-        item.profiles[0].D
-      }}</span>
-    </div>
-  </div>
+  </ng-container>
 </div>
 
 

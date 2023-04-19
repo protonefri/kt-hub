@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { MaterialModule } from './material/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AbilitiesNotesComponent } from './components/cards/card/abilities-notes/abilities-notes.component';
-import { SymbolReplace } from './pipes/symbolReplace';
+import { SymbolReplace } from './utils/pipes/symbolReplace';
 import { CardsComponent } from './components/cards/cards.component';
 import { CardComponent } from './components/cards/card/card.component';
 import { MainStatsComponent } from './components/cards/card/main-stats/main-stats.component';
@@ -18,6 +16,7 @@ import { PloyCardComponent } from './components/cards/card/ploy-card/ploy-card.c
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { OperativeSelectionComponent } from './components/cards/selection-forms/operative-selection/operative-selection.component';
 import { PloySelectionComponent } from './components/cards/selection-forms/ploy-selection/ploy-selection.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [

@@ -21,6 +21,20 @@
             [(ngModel)]="card.height"
           />
         </mat-form-field>
+        <mat-form-field class="p-1">
+          <mat-label>Card type</mat-label>
+          <mat-select
+          placeholder="Card type"
+          [(ngModel)]="dual"
+          >
+          <mat-option [value]="false">
+            Single
+          </mat-option>
+          <mat-option [value]="true">
+            Dual
+          </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
       <app-operative-selection
         [card]="card"
@@ -29,7 +43,7 @@
       ></app-operative-selection>
     </mat-card>
   </div>
-  <!-- OPERATIVE -->
+  <!-- FIRST CARD OPERATIVE -->
   <div
   style="margin-top: 1em; display: flex; justify-content: center;"
   >
@@ -37,7 +51,18 @@
     [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
     >
       <app-main-stats [card]="card"></app-main-stats>
-      <app-abilities-notes [card]="card"></app-abilities-notes>
+      <app-abilities-notes [card]="card" *ngIf="!dual"></app-abilities-notes>
+    </mat-card>
+  </div>
+  <!-- SECOND CARD OPERATIVE -->
+  <div
+  style="margin-top: 1em; display: flex; justify-content: center;"
+  *ngIf="dual"
+  >
+    <mat-card style="width: 100%; height: 100%;padding: 1em"
+    [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
+    >
+    <app-abilities-notes [card]="card"></app-abilities-notes>
     </mat-card>
   </div>
 

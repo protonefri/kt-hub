@@ -16,8 +16,6 @@ export class PloySelectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-
   this.weaponForm.get('wPloy')?.valueChanges.subscribe(value => {
     this.card.ploy = value;
     this.ployEmitter.emit(value);

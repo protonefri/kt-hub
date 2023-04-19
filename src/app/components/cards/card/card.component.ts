@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
+  dual:boolean = false;
+
   card: Card = {
     name: '',
     movement: 0,
@@ -40,6 +42,7 @@ export class CardComponent implements OnInit {
     width: new FormControl(600),
     height: new FormControl(800),
   });
+
   changePloy(event:any){
     this.ploys = event as Ploy[];
   }
