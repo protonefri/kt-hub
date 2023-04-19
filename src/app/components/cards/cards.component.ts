@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Card, Ploy } from './card';
 import { FormControl, FormGroup } from '@angular/forms';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-cards',
@@ -9,6 +10,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CardsComponent implements OnInit {
   dual:boolean = false;
+
+  @ViewChild('firstCard', { static: false }) firstCard!: ElementRef;
+
 
   card: Card = {
     name: '',
@@ -55,5 +59,17 @@ export class CardsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  downloadImage(){
+
+    html2canvas(this.firstCard.nativeElement).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = 'my-image.png';
+        link.href = imgData;
+        link.click();
+    });
+
+    }
 
 }
