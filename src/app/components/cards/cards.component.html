@@ -51,7 +51,7 @@
     [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
     >
       <app-main-stats [card]="card"></app-main-stats>
-      <app-abilities-notes [card]="card" *ngIf="!dual"></app-abilities-notes>
+      <app-abilities-notes [card]="card" [dual]="dual" *ngIf="!dual"></app-abilities-notes>
     </mat-card>
   </div>
   <!-- SECOND CARD OPERATIVE -->
@@ -62,7 +62,7 @@
     <mat-card style="width: 100%; height: 100%;padding: 1em"
     [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
     >
-    <app-abilities-notes [card]="card"></app-abilities-notes>
+    <app-abilities-notes [card]="card" [dual]="dual" ></app-abilities-notes>
     </mat-card>
   </div>
 

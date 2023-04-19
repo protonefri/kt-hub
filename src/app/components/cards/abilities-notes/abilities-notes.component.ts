@@ -8,6 +8,7 @@ import { Card } from '../card';
 })
 export class AbilitiesNotesComponent implements OnInit {
   @Input() card!: Card;
+  @Input() dual:boolean = false;
 
   constructor() { }
 
