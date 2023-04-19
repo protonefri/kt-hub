@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Card } from '../../card/card';
+import { Card } from '../../card';
 
 @Component({
   selector: 'app-ploy-selection',

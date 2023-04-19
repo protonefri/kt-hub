@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Card } from '../../card';
 import { FormControl, FormGroup } from '@angular/forms';
 import { WeaponType, WEAPON_TYPES } from './weapon-form';
 import { allData } from 'src/assets/data';
+import { Card } from '../../card';
 
 @Component({
   selector: 'app-weapon-form',
