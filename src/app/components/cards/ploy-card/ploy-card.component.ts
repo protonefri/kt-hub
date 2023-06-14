@@ -8,6 +8,8 @@ import { Card } from '../card';
 })
 export class PloyCardComponent implements OnInit {
   @Input() card!: Card;
+  @Input() backgroundColor!: string;
+  @Input() fontColor!: string;
 
   constructor() { }
 
