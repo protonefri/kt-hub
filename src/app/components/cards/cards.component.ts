@@ -6,12 +6,15 @@ import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-  dual:boolean = false;
+  dual: boolean = false;
 
   @ViewChild('firstCard', { static: false }) firstCard!: ElementRef;
+
+  backgroundColor: any = '#c54c21';
+  fontColor: any = '#ffffff';
 
 
   card: Card = {
@@ -23,22 +26,22 @@ export class CardsComponent implements OnInit {
     save: 0,
     wounds: 0,
     weapons: undefined,
-    abilities : undefined,
+    abilities: undefined,
     uniqueActions: undefined,
-    width:600,
-    height:600
+    width: 600,
+    height: 600,
   };
 
   ploys: Ploy[] = [
     {
-      factionid:   '',
-      killteamid:  '',
-      ployid:      '',
-      ployname:    '',
-      ploytype:    '',
-      CP:          '',
+      factionid: '',
+      killteamid: '',
+      ployid: '',
+      ployname: '',
+      ploytype: '',
+      CP: '',
       description: '',
-    }
+    },
   ];
 
   cssForm = new FormGroup({
@@ -46,30 +49,29 @@ export class CardsComponent implements OnInit {
     height: new FormControl(800),
   });
 
-  changePloy(event:any){
+  changePloy(event: any) {
     this.ploys = event as Ploy[];
   }
 
-  changePloySelect(event:any){
+  changePloySelect(event: any) {
     this.card.ploy = event;
   }
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  downloadImage(){
-
-    html2canvas(this.firstCard.nativeElement).then(canvas => {
-        const imgData = canvas.toDataURL('image/png');
-        const link = document.createElement('a');
-        link.download = 'my-image.png';
-        link.href = imgData;
-        link.click();
+  downloadImage() {
+    html2canvas(this.firstCard.nativeElement).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = 'my-image.png';
+      link.href = imgData;
+      link.click();
     });
+  }
 
-    }
-
+  print(style:any){
+    console.log(style);
+  }
 }

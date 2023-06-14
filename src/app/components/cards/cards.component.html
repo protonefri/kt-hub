@@ -41,6 +41,16 @@
         [ploys]="ploys"
         (ployEmitter)="changePloy($event)"
       ></app-operative-selection>
+      <div class="f-center">
+        <div>
+          <mat-label style="padding-right: 1em;">Background Color</mat-label>
+          <input [(colorPicker)]="backgroundColor" [style.background]="backgroundColor"/>
+        </div>
+        <div style="padding-left: 3em;">
+          <mat-label style="padding-right: 1em;">Text Color</mat-label>
+          <input [(colorPicker)]="fontColor" [style.color]="fontColor"/>
+        </div>
+      </div>
     </mat-card>
   </div>
   <!-- FIRST CARD OPERATIVE -->
@@ -50,12 +60,12 @@
     <mat-card style="width: 100%; height: 100%;padding: 1em"
     [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
     >
-      <app-main-stats [card]="card"></app-main-stats>
+      <app-main-stats [card]="card" [backgroundColor]="backgroundColor" [fontColor]="fontColor"></app-main-stats>
       <app-abilities-notes [card]="card" [dual]="dual" *ngIf="!dual"></app-abilities-notes>
     </mat-card>
   </div>
-  <div class="f-sa pt-2">
-    <button mat-raised-button (click)="downloadImage()">Export as Image</button>
+  <div class="f-sa pt-2" >
+    <button mat-raised-button disabled="true" (click)="downloadImage()">Export as Image</button>
   </div>
 
   <!-- SECOND CARD OPERATIVE -->

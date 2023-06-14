@@ -17,6 +17,12 @@ import { MaterialModule } from './material/material.module';
 import { WeaponFormComponent } from './components/cards/forms/weapon-form/weapon-form.component';
 import { MainStatsFormComponent } from './components/cards/forms/main-stats-form/main-stats-form.component';
 import { WeaponsComponent } from './components/cards/weapons/weapons.component';
+import {
+  MAT_COLOR_FORMATS,
+  NGX_MAT_COLOR_FORMATS,
+  NgxMatColorPickerModule,
+} from '@angular-material-components/color-picker';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,7 @@ import { WeaponsComponent } from './components/cards/weapons/weapons.component';
     AbilitiesNotesComponent,
     PloyCardComponent,
     PloySelectionComponent,
-    WeaponsComponent
+    WeaponsComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +45,14 @@ import { WeaponsComponent } from './components/cards/weapons/weapons.component';
     RouterModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMatColorPickerModule,
+    ColorPickerModule
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,5 +1,5 @@
 <div class="text-center o-name">
-  <h1 class="p-2">{{ card.name === "" ? "Operative Name" : card.name }}</h1>
+  <h1 class="p-2" [style.background]="backgroundColor" [style.color]="fontColor">{{ card.name === "" ? "Operative Name" : card.name }}</h1>
 </div>
 <div #stats style="font-size: 1.8em; width: 100%;" class="f-s-b">
   <span class="text-center w-100 o-stats">

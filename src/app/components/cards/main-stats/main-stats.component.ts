@@ -8,6 +8,9 @@ import { Card } from '../card';
 })
 export class MainStatsComponent implements OnInit {
   @Input() card!: Card;
+  @Input() backgroundColor!: string;
+  @Input() fontColor!: string;
+
 
   constructor() { }
 
