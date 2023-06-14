@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { allData } from 'src/assets/data';
+
 import { Card } from '../../card';
+import { allData } from 'src/assets/compendium';
 
 @Component({
   selector: 'app-operative-selection',
