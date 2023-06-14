@@ -28,8 +28,8 @@ export class CardsComponent implements OnInit {
     weapons: undefined,
     abilities: undefined,
     uniqueActions: undefined,
-    width: 600,
-    height: 600,
+    width: 630 ,
+    height: 880,
   };
 
   ploys: Ploy[] = [
