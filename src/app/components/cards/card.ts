@@ -2,7 +2,7 @@ import { WeaponType } from "./forms/weapon-form/weapon-form";
 
 export interface Card {
   name: string,
-  movement : number,
+  movement : string,
   APL: number,
   GA: number,
   DF: number,

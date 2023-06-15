@@ -2,6 +2,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Input,
   OnInit,
   Output,
   ViewChild,
@@ -10,6 +11,7 @@ import { Card, Ploy } from './card';
 import { FormControl, FormGroup } from '@angular/forms';
 import html2canvas from 'html2canvas';
 import { allData } from 'src/assets/compendium';
+import { CardsService } from 'src/app/services/cards.service';
 
 @Component({
   selector: 'app-cards',
@@ -17,6 +19,8 @@ import { allData } from 'src/assets/compendium';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
+  @ViewChild('firstCard', { static: false }) firstCard!: ElementRef;
+
   dual: boolean = false;
   allData: any = allData;
   cardType!: string;
@@ -24,49 +28,17 @@ export class CardsComponent implements OnInit {
   operatives!: any;
   @Output() ployEmitter = new EventEmitter<string>();
 
-  @ViewChild('firstCard', { static: false }) firstCard!: ElementRef;
-
   backgroundColor: any = '#c54c21';
   fontColor: any = '#ffffff';
 
-  weaponForm = new FormGroup({
-    wFaction: new FormControl(),
-    wKillTeam: new FormControl(),
-    wOperative: new FormControl(),
-    wPloy: new FormControl(),
-  });
+  weaponForm!: FormGroup;
 
-  card: Card = {
-    name: '',
-    movement: 0,
-    APL: 0,
-    GA: 0,
-    DF: 0,
-    save: 0,
-    wounds: 0,
-    weapons: undefined,
-    abilities: undefined,
-    uniqueActions: undefined,
-    width: 630,
-    height: 880,
-  };
+  card!: Card;
+  ploys!: Ploy[];
 
-  ploys: Ploy[] = [
-    {
-      factionid: '',
-      killteamid: '',
-      ployid: '',
-      ployname: '',
-      ploytype: '',
-      CP: '',
-      description: '',
-    },
-  ];
+  cssForm!: FormGroup;
 
-  cssForm = new FormGroup({
-    width: new FormControl(600),
-    height: new FormControl(800),
-  });
+  constructor(private cardsService: CardsService) {}
 
   changePloy(event: any) {
     this.ploys = event as Ploy[];
@@ -76,32 +48,23 @@ export class CardsComponent implements OnInit {
     this.card.ploy = event;
   }
 
-  constructor() {}
-
   ngOnInit() {
-    this.weaponForm.get('wOperative')?.valueChanges.subscribe((value) => {
-      console.log(value);
-      this.card.APL = value.APL;
-      this.card.DF = value.DF;
-      this.card.GA = value.GA;
-      this.card.movement = value.M.slice(0, 1);
-      this.card.name = value.opname;
-      this.card.save = value.SV;
-      this.card.wounds = value.W;
-      this.card.weapons = value?.weapons;
-      this.card.abilities = value?.abilities;
-      this.card.uniqueActions = value?.uniqueactions;
+    this.cardsService.card$.subscribe({
+      next: (data) => {
+        this.card = data;
+      },
     });
-    this.weaponForm.get('wFaction')?.valueChanges.subscribe((value) => {
-      this.factions = value.killteams;
+
+    this.cardsService.weaponForm$.subscribe({
+      next: (data) => {
+        this.weaponForm = data;
+      },
     });
+
     this.weaponForm.get('wKillTeam')?.valueChanges.subscribe((value) => {
       this.operatives = value.fireteams[0]?.operatives;
       this.ploys = value.ploys.strat.concat(value.ploys.tac);
-      //this.ployEmitter.emit(this.ploys);
     });
-
-
   }
 
   downloadImage() {

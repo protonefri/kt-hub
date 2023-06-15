@@ -90,7 +90,7 @@
         [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
       >
         <app-main-stats
-          [card]="card"
+
           [backgroundColor]="backgroundColor"
           [fontColor]="fontColor"
         ></app-main-stats>
@@ -109,18 +109,12 @@
           [ploys]="ploys"
           (ployEmitter)="changePloy($event)"
           [allData]="allData"
+          [operatives]="operatives"
           [weaponForm]="weaponForm"
         ></app-operative-selection>
       </mat-card>
     </div>
-  </div>
 
-  <!-- <div class="f-sa pt-2" >
-    <button mat-raised-button disabled="true" (click)="downloadImage()">Export as Image</button>
-  </div> -->
-
-  <div class="f-sa wrap">
-    <!-- SECOND CARD OPERATIVE -->
     <div style="margin-top: 1em" *ngIf="dual && cardType == 'operative'">
       <mat-card
         style="padding: 1em"
@@ -129,6 +123,15 @@
         <app-abilities-notes [card]="card" [dual]="dual"></app-abilities-notes>
       </mat-card>
     </div>
+
+  </div>
+
+  <!-- <div class="f-sa pt-2" >
+    <button mat-raised-button disabled="true" (click)="downloadImage()">Export as Image</button>
+  </div> -->
+
+  <div class="f-sa wrap">
+    <!-- SECOND CARD OPERATIVE -->
 
     <!-- OPERATIVE SELECT -->
 
