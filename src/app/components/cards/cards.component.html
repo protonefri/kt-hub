@@ -1,110 +1,165 @@
 <div class="" style="margin-top: 1em">
-  <div class="f-sa">
-    <div #firstCard
-    style="margin-top: 1em; display: flex; justify-content: center;"
+  <div>
+    <mat-card style="padding: 1em">
+      <div class="p-2">
+        <div class="f-center">
+          <div>
+            <mat-label style="padding-right: 1em">Background Color</mat-label>
+            <input
+              [(colorPicker)]="backgroundColor"
+              [style.background]="backgroundColor"
+            />
+          </div>
+          <div style="padding-left: 3em">
+            <mat-label style="padding-right: 1em">Text Color</mat-label>
+            <input [(colorPicker)]="fontColor" [style.color]="fontColor" />
+          </div>
+        </div>
+      </div>
+      <div class="p-2 f-sa">
+        <mat-form-field class="p-1">
+          <mat-label>Width</mat-label>
+          <input
+            matInput
+            type="number"
+            placeholder="Width"
+            [(ngModel)]="card.width"
+          />
+        </mat-form-field>
+        <mat-form-field class="p-1">
+          <mat-label>Height</mat-label>
+          <input
+            matInput
+            type="number"
+            min="100"
+            placeholder="Height"
+            [(ngModel)]="card.height"
+          />
+        </mat-form-field>
+        <mat-form-field class="p-1">
+          <mat-label>Card type</mat-label>
+          <mat-select placeholder="Card type" [(ngModel)]="dual">
+            <mat-option [value]="false"> Single </mat-option>
+            <mat-option [value]="true"> Dual </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="f-sa wrap">
+        <mat-form-field class="" [formGroup]="weaponForm">
+          <mat-label>Faction</mat-label>
+          <mat-select formControlName="wFaction">
+            <mat-option *ngFor="let operative of allData" [value]="operative">
+              {{ operative.factionname }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="" [formGroup]="weaponForm">
+          <mat-label>Kill team</mat-label>
+          <mat-select formControlName="wKillTeam">
+            <mat-option
+              *ngFor="
+                let killteam of weaponForm.get('wFaction')?.value?.killteams
+              "
+              [value]="killteam"
+            >
+              {{ killteam.killteamname }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="" [formGroup]="weaponForm">
+          <mat-label>Card type</mat-label>
+          <mat-select (valueChange)="typeSelect($event)">
+            <mat-option value="operative"> Operative </mat-option>
+            <mat-option value="ploy"> Ploy </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- FIRST CARD OPERATIVE -->
+  <div *ngIf="cardType == 'operative'" class="f-sa wrap">
+    <div
+      #firstCard
+      style="margin-top: 1em; display: flex; justify-content: center"
     >
-      <mat-card style="width: 100%; height: 100%;padding: 1em"
-      [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
+      <mat-card
+        style="width: 100%; height: 100%; padding: 1em"
+        [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
       >
-        <app-main-stats [card]="card" [backgroundColor]="backgroundColor" [fontColor]="fontColor"></app-main-stats>
-        <app-abilities-notes [card]="card" [dual]="dual" *ngIf="!dual"></app-abilities-notes>
+        <app-main-stats
+          [card]="card"
+          [backgroundColor]="backgroundColor"
+          [fontColor]="fontColor"
+        ></app-main-stats>
+        <app-abilities-notes
+          [card]="card"
+          [dual]="dual"
+          *ngIf="!dual"
+        ></app-abilities-notes>
       </mat-card>
     </div>
 
-    <div style="margin: 1em;">
-      <mat-card style="padding: 1em;">
-        <div class="f-sa">
-          <mat-form-field class="p-1">
-            <mat-label>Width</mat-label>
-            <input
-              matInput
-              type="number"
-              placeholder="Width"
-              [(ngModel)]="card.width"
-            />
-          </mat-form-field>
-          <mat-form-field class="p-1">
-            <mat-label>Height</mat-label>
-            <input
-              matInput
-              type="number"
-              min="100"
-              placeholder="Height"
-              [(ngModel)]="card.height"
-            />
-          </mat-form-field>
-          <mat-form-field class="p-1">
-            <mat-label>Card type</mat-label>
-            <mat-select
-            placeholder="Card type"
-            [(ngModel)]="dual"
-            >
-            <mat-option [value]="false">
-              Single
-            </mat-option>
-            <mat-option [value]="true">
-              Dual
-            </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+    <div style="margin: 1em">
+      <mat-card style="padding: 1em">
         <app-operative-selection
           [card]="card"
           [ploys]="ploys"
           (ployEmitter)="changePloy($event)"
+          [allData]="allData"
+          [weaponForm]="weaponForm"
         ></app-operative-selection>
-        <div class="f-center">
-          <div>
-            <mat-label style="padding-right: 1em;">Background Color</mat-label>
-            <input [(colorPicker)]="backgroundColor" [style.background]="backgroundColor"/>
-          </div>
-          <div style="padding-left: 3em;">
-            <mat-label style="padding-right: 1em;">Text Color</mat-label>
-            <input [(colorPicker)]="fontColor" [style.color]="fontColor"/>
-          </div>
-        </div>
       </mat-card>
     </div>
-
-
   </div>
-  <!-- FIRST CARD OPERATIVE -->
 
-  <div class="f-sa pt-2" >
+  <!-- <div class="f-sa pt-2" >
     <button mat-raised-button disabled="true" (click)="downloadImage()">Export as Image</button>
-  </div>
+  </div> -->
 
-  <!-- SECOND CARD OPERATIVE -->
-  <div
-  style="margin-top: 1em; display: flex; justify-content: center;"
-  *ngIf="dual"
-  >
-    <mat-card style="width: 100%; height: 100%;padding: 1em"
-    [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
-    >
-    <app-abilities-notes [card]="card" [dual]="dual" ></app-abilities-notes>
-    </mat-card>
-  </div>
-
-  <!-- OPERATIVE SELECT -->
-
-
-  <div class="f-sa" style="margin-top: 1em; margin-bottom: 3em;">
-    <div style="justify-content: center">
-      <mat-card [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }" style="padding: 1em">
-        <app-ploy-card [card]="card" [backgroundColor]="backgroundColor" [fontColor]="fontColor"></app-ploy-card>
+  <div class="f-sa wrap">
+    <!-- SECOND CARD OPERATIVE -->
+    <div style="margin-top: 1em" *ngIf="dual && cardType == 'operative'">
+      <mat-card
+        style="padding: 1em"
+        [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
+      >
+        <app-abilities-notes [card]="card" [dual]="dual"></app-abilities-notes>
       </mat-card>
     </div>
-    <div style="margin-left: 1em">
-      <mat-card style="height: 600px; width: 450px; padding: 1em">
-        <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
-    <app-weapon-form [card]="card"></app-weapon-form> -->
-        <app-ploy-selection
-          [card]="card"
-          [ploys]="ploys"
-          (ployEmitter)="changePloySelect($event)"
-        ></app-ploy-selection>
-      </mat-card>
+
+    <!-- OPERATIVE SELECT -->
+
+    <div
+      *ngIf="cardType == 'ploy'"
+      class="f-sa"
+      style="margin-top: 1em; margin-bottom: 3em"
+    >
+      <div style="justify-content: center">
+        <mat-card
+          [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
+          style="padding: 1em"
+        >
+          <app-ploy-card
+            [card]="card"
+            [backgroundColor]="backgroundColor"
+            [fontColor]="fontColor"
+          ></app-ploy-card>
+        </mat-card>
+      </div>
+      <div style="margin-left: 1em">
+        <mat-card style="height: 600px; width: 450px; padding: 1em">
+          <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
+   <app-weapon-form [card]="card"></app-weapon-form> -->
+          <app-ploy-selection
+            [card]="card"
+            [ploys]="ploys"
+            (ployEmitter)="changePloySelect($event)"
+          ></app-ploy-selection>
+        </mat-card>
+      </div>
     </div>
   </div>
 </div>

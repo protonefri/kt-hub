@@ -1,22 +1,6 @@
 <div class="">
   <div class="f-sa">
-    <mat-form-field class="" [formGroup]="weaponForm">
-      <mat-label>Faction</mat-label>
-      <mat-select formControlName="wFaction">
-        <mat-option *ngFor="let operative of allData" [value]="operative">
-          {{ operative.factionname }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
-    <mat-form-field class="" [formGroup]="weaponForm">
-      <mat-label>Kill team</mat-label>
-      <mat-select formControlName="wKillTeam">
-        <mat-option *ngFor="let killteam of weaponForm.get('wFaction')?.value?.killteams" [value]="killteam">
-          {{ killteam.killteamname }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
     <mat-form-field class="" [formGroup]="weaponForm">
       <mat-label>Operative</mat-label>
       <mat-select formControlName="wOperative">

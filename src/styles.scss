@@ -149,6 +149,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   max-width: 100%;
 }
 
+.wrap{
+  flex-wrap: wrap;
+}
+
 .f-s-b{
   display: flex;
   justify-content: space-between;

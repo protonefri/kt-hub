@@ -1,9 +1,10 @@
 .wrapper{
-  max-width: 1400px;
+  max-width: 1000px;
   display: grid;
 
 }
 
 @media (min-width: 990px) {
-  .wrapper { grid-template-columns: repeat(2, 1fr); }
+  .wrapper { grid-template-columns: repeat(2, 1fr);
+    max-width: 375px; }
 }
