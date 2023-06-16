@@ -25,6 +25,7 @@
       </div>
     </ng-container>
   </div>
-  <img *ngIf="dual" style="height: 200px;  opacity: 0.1;  position: absolute;  width: 100%;  top: 50%; pointer-events: none;" [src]="'/assets/pics/'+card.svgBckg+'.svg'"/>
+  <img *ngIf="dual" style="height: 200px;  opacity: 0.1;  position: absolute;  width: 100%;  top: 50%; pointer-events: none; left: 50%;
+  transform: translateX(-50%);" [src]="'/assets/pics/'+card.svgBckg+'.svg'"/>
 
 </div>
