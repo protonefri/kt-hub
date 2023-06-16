@@ -12,6 +12,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import html2canvas from 'html2canvas';
 import { allData } from 'src/assets/compendium';
 import { CardsService } from 'src/app/services/cards.service';
+import { backgroundImages } from './cards-config';
 
 @Component({
   selector: 'app-cards',
@@ -27,6 +28,7 @@ export class CardsComponent implements OnInit {
   factions!: any;
   operatives!: any;
   @Output() ployEmitter = new EventEmitter<string>();
+  backgroundImages = backgroundImages;
 
   backgroundColor: any = '#c54c21';
   fontColor: any = '#ffffff';
@@ -79,5 +81,9 @@ export class CardsComponent implements OnInit {
 
   typeSelect(value: any) {
     this.cardType = value;
+  }
+
+  updateBckg(event:any){
+    this.cardsService.updateBckg(event.value)
   }
 }

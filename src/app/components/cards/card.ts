@@ -13,7 +13,8 @@ export interface Card {
   uniqueActions?: UniqueActions[]
   ploy?:Ploy;
   width?:number,
-  height?:number
+  height?:number,
+  svgBckg?:string
 }
 
 

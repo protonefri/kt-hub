@@ -44,7 +44,7 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="f-sa wrap">
+      <div class="f-sa wrap" style="gap: 10px">
         <mat-form-field class="" [formGroup]="weaponForm">
           <mat-label>Faction</mat-label>
           <mat-select formControlName="wFaction">
@@ -68,6 +68,18 @@
           </mat-select>
         </mat-form-field>
 
+        <mat-form-field class="">
+          <mat-label>Faction background</mat-label>
+          <mat-select placeholder="Faction background" (selectionChange)="updateBckg($event)">
+            <mat-option
+              *ngFor="let image of backgroundImages"
+              [value]="image.value"
+            >
+              {{ image.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
         <mat-form-field class="" [formGroup]="weaponForm">
           <mat-label>Card type</mat-label>
           <mat-select (valueChange)="typeSelect($event)">
@@ -75,6 +87,7 @@
             <mat-option value="ploy"> Ploy </mat-option>
           </mat-select>
         </mat-form-field>
+
       </div>
     </mat-card>
   </div>
@@ -90,7 +103,6 @@
         [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
       >
         <app-main-stats
-
           [backgroundColor]="backgroundColor"
           [fontColor]="fontColor"
         ></app-main-stats>
@@ -123,7 +135,6 @@
         <app-abilities-notes [card]="card" [dual]="dual"></app-abilities-notes>
       </mat-card>
     </div>
-
   </div>
 
   <!-- <div class="f-sa pt-2" >

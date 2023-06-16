@@ -20,6 +20,7 @@ export class CardsService {
     uniqueActions: undefined,
     width: 630,
     height: 880,
+    svgBckg:'kill-team'
   };
 
   ploys: Ploy[] = [
@@ -66,5 +67,10 @@ export class CardsService {
   updateOperative(operative: any) {
     this.operative = operative;
     this.operative$.next(operative);
+  }
+
+  updateBckg(value: any) {
+    this.card.svgBckg = value;
+    this.card$.next(this.card);
   }
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve",
+    "start": "nx serve --open",
     "start:nesto": "nx serve",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
