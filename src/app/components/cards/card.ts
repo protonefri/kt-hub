@@ -11,6 +11,7 @@ export interface Card {
   weapons?: Weapon[],
   abilities?: Abilities[],
   uniqueActions?: UniqueActions[]
+  equipment?:Equipment;
   ploy?:Ploy;
   width?:number,
   height?:number,

@@ -35,13 +35,11 @@ export class CardsComponent implements OnInit {
   fontColor: any = '#ffffff';
 
   weaponForm!: FormGroup;
+  cssForm!: FormGroup;
 
   card!: Card;
   ploys!: Ploy[];
   equipment!: any;
-
-
-  cssForm!: FormGroup;
 
   constructor(private cardsService: CardsService) {}
 
@@ -53,16 +51,16 @@ export class CardsComponent implements OnInit {
     this.card.ploy = event;
   }
 
-  changeEquipment(event:any){
+  changeEquipment(event: any) {
     this.card.equipment = event;
-    console.log(this.card.equipment)
+    console.log(this.card.equipment);
   }
 
   ngOnInit() {
     this.cardsService.card$.subscribe({
       next: (data) => {
         this.card = data;
-        console.log(this.allData)
+        console.log(this.allData);
       },
     });
 
@@ -75,7 +73,9 @@ export class CardsComponent implements OnInit {
     this.weaponForm.get('wKillTeam')?.valueChanges.subscribe((value) => {
       this.operatives = value.fireteams[0]?.operatives;
       this.ploys = value.ploys.strat.concat(value.ploys.tac);
-      this.equipment = value.equipments.filter((item:any) => item.eqcategory === "Equipment");
+      this.equipment = value.equipments.filter(
+        (item: any) => item.eqcategory === 'Equipment'
+      );
       console.log(this.equipment);
     });
   }
@@ -94,7 +94,7 @@ export class CardsComponent implements OnInit {
     this.cardType = value;
   }
 
-  updateBckg(event:any){
-    this.cardsService.updateBckg(event.value)
+  updateBckg(event: any) {
+    this.cardsService.updateBckg(event.value);
   }
 }
