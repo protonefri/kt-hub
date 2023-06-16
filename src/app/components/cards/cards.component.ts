@@ -27,6 +27,7 @@ export class CardsComponent implements OnInit {
   cardType!: string;
   factions!: any;
   operatives!: any;
+
   @Output() ployEmitter = new EventEmitter<string>();
   backgroundImages = backgroundImages;
 
@@ -37,6 +38,8 @@ export class CardsComponent implements OnInit {
 
   card!: Card;
   ploys!: Ploy[];
+  equipment!: any;
+
 
   cssForm!: FormGroup;
 
@@ -50,10 +53,16 @@ export class CardsComponent implements OnInit {
     this.card.ploy = event;
   }
 
+  changeEquipment(event:any){
+    this.card.equipment = event;
+    console.log(this.card.equipment)
+  }
+
   ngOnInit() {
     this.cardsService.card$.subscribe({
       next: (data) => {
         this.card = data;
+        console.log(this.allData)
       },
     });
 
@@ -66,6 +75,8 @@ export class CardsComponent implements OnInit {
     this.weaponForm.get('wKillTeam')?.valueChanges.subscribe((value) => {
       this.operatives = value.fireteams[0]?.operatives;
       this.ploys = value.ploys.strat.concat(value.ploys.tac);
+      this.equipment = value.equipments.filter((item:any) => item.eqcategory === "Equipment");
+      console.log(this.equipment);
     });
   }
 

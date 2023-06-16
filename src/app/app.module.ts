@@ -23,6 +23,8 @@ import {
   NgxMatColorPickerModule,
 } from '@angular-material-components/color-picker';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { EquipmentCardComponent } from './components/cards/equipment-card/equipment-card.component';
+import { EquipmentSelectionComponent } from './components/cards/selection-forms/equipment-selection/equipment-selection.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     PloyCardComponent,
     PloySelectionComponent,
     WeaponsComponent,
+    EquipmentCardComponent,
+    EquipmentSelectionComponent
   ],
   imports: [
     BrowserModule,
