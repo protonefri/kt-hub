@@ -1,6 +1,11 @@
+*{
+  font-family: 'Oswald', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 .weapon-item {
   font-size: 1.2em;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Oswald','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
 }
 
