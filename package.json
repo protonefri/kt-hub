@@ -5,10 +5,10 @@
     "ng": "ng",
     "start": "nx serve",
     "start:nesto": "nx serve",
-    "build": "ng build --configuration production",
+    "build": "nx build --configuration production",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
-    "npm-install": "set CYPRESS_INSTALL_BINARY=0 && npm install"
+    "npm-install": "npm install"
   },
   "private": true,
   "dependencies": {
