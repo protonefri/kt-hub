@@ -1,5 +1,6 @@
 export const backgroundImages: any[]= [
-  { "value": "", "label": "Faction" },
+  { "value": "", "label": "No faction" },
+  { "value": "kill-team", "label": "Default" },
   { "value": "space-marines", "label": "Space Marines" },
   { "value": "grey-knights", "label": "Grey Knights" },
   { "value": "imperial-guard", "label": "Imperial Guard" },
