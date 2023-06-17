@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Card, Ploy } from '../components/cards/card';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
@@ -41,10 +41,11 @@ export class CardsService {
   });
 
   weaponForm = new FormGroup({
-    wFaction: new FormControl(),
-    wKillTeam: new FormControl(),
-    wOperative: new FormControl(),
-    wPloy: new FormControl(),
+    wFaction: new FormControl(null, Validators.required),
+    wKillTeam: new FormControl({ value: '', disabled: true }),
+    wOperative: new FormControl('', Validators.required),
+    wPloy: new FormControl('', Validators.required),
+    wCardType: new FormControl({ value: 'default', disabled: true })
   });
 
   operative!: any;

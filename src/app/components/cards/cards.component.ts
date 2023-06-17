@@ -73,14 +73,23 @@ export class CardsComponent implements OnInit {
       },
     });
 
+    this.weaponForm.get('wFaction')?.valueChanges.subscribe((value) =>{
+      this.weaponForm.get('wKillTeam')?.enable();
+    })
+
+
     this.weaponForm.get('wKillTeam')?.valueChanges.subscribe((value) => {
-      this.operatives = value.fireteams[0]?.operatives;
-      this.ploys = value.ploys.strat.concat(value.ploys.tac);
-      this.equipment = value.equipments.filter(
-        (item: any) => item.eqcategory === 'Equipment'
-      );
-      this.tacops = value.tacops;
-      console.log(value);
+      if(value !=''){
+        this.weaponForm.get('wCardType')?.enable();
+        this.weaponForm.get('wCardType')?.enable();
+
+        this.operatives = value.fireteams[0]?.operatives;
+        this.ploys = value.ploys.strat.concat(value.ploys.tac);
+        this.equipment = value.equipments.filter(
+          (item: any) => item.eqcategory === 'Equipment'
+        );
+        this.tacops = value.tacops;
+      }
     });
   }
 
