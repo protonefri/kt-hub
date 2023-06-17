@@ -1,50 +1,69 @@
 <div class="" style="margin-top: 1em">
   <div>
     <mat-card style="padding: 1em">
-      <div class="p-2">
+      <div class="p-3">
+        <!-- COLOR OPTIONS -->
         <div class="f-center">
           <div>
-            <mat-label style="padding-right: 1em">Background Color</mat-label>
+            <mat-label style="padding-right: 1em"  class="mat-form-field-label">Background Color</mat-label>
             <input
-              [(colorPicker)]="backgroundColor"
-              [style.background]="backgroundColor"
+            class="matInput"
+            [(colorPicker)]="backgroundColor"
+            [style.background]="backgroundColor"
             />
           </div>
           <div style="padding-left: 3em">
-            <mat-label style="padding-right: 1em">Text Color</mat-label>
-            <input [(colorPicker)]="fontColor" [style.background]="fontColor" />
+            <mat-label style="padding-right: 1em" class="mat-form-field-label">Text Color</mat-label>
+            <input
+            class="matInput"
+            [(colorPicker)]="fontColor"
+            [style.background]="fontColor"
+            />
           </div>
         </div>
       </div>
-      <div class="p-2 f-sa">
-        <mat-form-field class="p-1">
-          <mat-label>Width</mat-label>
-          <input
-            matInput
-            type="number"
-            placeholder="Width"
-            [(ngModel)]="card.width"
-          />
-        </mat-form-field>
-        <mat-form-field class="p-1">
-          <mat-label>Height</mat-label>
-          <input
-            matInput
-            type="number"
-            min="100"
-            placeholder="Height"
-            [(ngModel)]="card.height"
-          />
-        </mat-form-field>
-        <mat-form-field class="p-1">
-          <mat-label>Card type</mat-label>
-          <mat-select placeholder="Card type" [(ngModel)]="dual">
-            <mat-option [value]="false"> Single </mat-option>
-            <mat-option [value]="true"> Dual </mat-option>
-          </mat-select>
-        </mat-form-field>
+      <!-- ADVANCED OPTIONS -->
+      <div class="p-3">
+        <mat-accordion>
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title> Advanced options </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="p-2 f-sa">
+              <mat-form-field class="p-1">
+                <mat-label>Width</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Width"
+                  [(ngModel)]="card.width"
+                />
+              </mat-form-field>
+              <mat-form-field class="p-1">
+                <mat-label>Height</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  min="100"
+                  placeholder="Height"
+                  [(ngModel)]="card.height"
+                />
+              </mat-form-field>
+              <mat-form-field class="p-1">
+                <mat-label>Card type</mat-label>
+                <mat-select placeholder="Card type" [(ngModel)]="dual">
+                  <mat-option [value]="false"> Single </mat-option>
+                  <mat-option [value]="true"> Dual </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
-      <div class="f-sa wrap" style="gap: 10px">
+
+
+      <!-- BASIC OPTIONS -->
+      <div class="f-sa wrap p-3" style="gap: 10px">
         <mat-form-field class="" [formGroup]="weaponForm">
           <mat-label>Faction</mat-label>
           <mat-select formControlName="wFaction">
