@@ -12,7 +12,7 @@
           </div>
           <div style="padding-left: 3em">
             <mat-label style="padding-right: 1em">Text Color</mat-label>
-            <input [(colorPicker)]="fontColor" [style.color]="fontColor" />
+            <input [(colorPicker)]="fontColor" [style.background]="fontColor" />
           </div>
         </div>
       </div>
@@ -146,10 +146,7 @@
   </div> -->
 
   <div class="f-sa wrap">
-    <!-- SECOND CARD OPERATIVE -->
-
-    <!-- OPERATIVE SELECT -->
-
+    <!-- OPERATIVE CARD -->
     <div
       *ngIf="cardType == 'ploy'"
       class="f-sa"
@@ -169,8 +166,6 @@
       </div>
       <div style="margin-left: 1em">
         <mat-card style="height: 600px; width: 450px; padding: 1em">
-          <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
-   <app-weapon-form [card]="card"></app-weapon-form> -->
           <app-ploy-selection
             [card]="card"
             [ploys]="ploys"
@@ -179,7 +174,7 @@
         </mat-card>
       </div>
     </div>
-    <!-- EQUIPMENT -->
+    <!-- EQUIPMENT CARD -->
     <div
       *ngIf="cardType == 'equipment'"
       class="f-sa"
@@ -200,8 +195,6 @@
       </div>
       <div style="margin-left: 1em">
         <mat-card style="height: 600px; width: 450px; padding: 1em">
-          <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
-   <app-weapon-form [card]="card"></app-weapon-form> -->
           <app-equipment-selection
             [card]="card"
             [equipment]="equipment"
@@ -210,7 +203,7 @@
         </mat-card>
       </div>
     </div>
-    <!-- TAC OPS -->
+    <!-- TAC OPS CARD-->
     <div
       *ngIf="cardType == 'tacops'"
       class="f-sa"
@@ -230,8 +223,6 @@
       </div>
       <div style="margin-left: 1em">
         <mat-card style="height: 600px; width: 450px; padding: 1em">
-          <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
-     <app-weapon-form [card]="card"></app-weapon-form> -->
           <app-tacops-selection
             [card]="card"
             [tacops]="tacops"
