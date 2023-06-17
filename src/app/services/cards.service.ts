@@ -45,7 +45,8 @@ export class CardsService {
     wKillTeam: new FormControl({ value: '', disabled: true }),
     wOperative: new FormControl('', Validators.required),
     wPloy: new FormControl('', Validators.required),
-    wCardType: new FormControl({ value: 'default', disabled: true })
+    wCardType: new FormControl({ value: '', disabled: true }),
+    wFactionBgd: new FormControl({ value: 'kill-team', disabled: true })
   });
 
   operative!: any;

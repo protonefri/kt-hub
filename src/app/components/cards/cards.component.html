@@ -66,7 +66,7 @@
 
     <!-- BASIC OPTIONS -->
     <div class="f-sa wrap p-2" style="gap: 10px">
-      <mat-form-field class="" [formGroup]="weaponForm">
+      <mat-form-field class="" [formGroup]="selectionForm">
         <mat-label>Faction</mat-label>
         <mat-select formControlName="wFaction">
           <mat-option *ngFor="let operative of allData" [value]="operative">
@@ -75,12 +75,12 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="" [formGroup]="weaponForm">
+      <mat-form-field class="" [formGroup]="selectionForm">
         <mat-label>Kill team</mat-label>
         <mat-select formControlName="wKillTeam">
           <mat-option
             *ngFor="
-              let killteam of weaponForm.get('wFaction')?.value?.killteams
+              let killteam of selectionForm.get('wFaction')?.value?.killteams
             "
             [value]="killteam"
           >
@@ -89,10 +89,10 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="" [formGroup]="weaponForm">
+      <mat-form-field class="" [formGroup]="selectionForm">
         <mat-label>Faction background</mat-label>
         <mat-select
-          formControlName="wCardType"
+          formControlName="wFactionBgd"
           placeholder="Faction background"
           (selectionChange)="updateBckg($event)"
         >
@@ -105,7 +105,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="" [formGroup]="weaponForm">
+      <mat-form-field class="" [formGroup]="selectionForm">
         <mat-label>Card type</mat-label>
         <mat-select
           formControlName="wCardType"
@@ -151,7 +151,7 @@
         (ployEmitter)="changePloy($event)"
         [allData]="allData"
         [operatives]="operatives"
-        [weaponForm]="weaponForm"
+        [weaponForm]="selectionForm"
       ></app-operative-selection>
     </mat-card>
   </div>

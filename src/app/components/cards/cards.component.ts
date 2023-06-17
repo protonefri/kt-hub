@@ -34,7 +34,7 @@ export class CardsComponent implements OnInit {
   backgroundColor: any = '#c54c21';
   fontColor: any = '#ffffff';
 
-  weaponForm!: FormGroup;
+  selectionForm!: FormGroup;
   cssForm!: FormGroup;
 
   card!: Card;
@@ -69,19 +69,19 @@ export class CardsComponent implements OnInit {
 
     this.cardsService.weaponForm$.subscribe({
       next: (data) => {
-        this.weaponForm = data;
+        this.selectionForm = data;
       },
     });
 
-    this.weaponForm.get('wFaction')?.valueChanges.subscribe((value) =>{
-      this.weaponForm.get('wKillTeam')?.enable();
+    this.selectionForm.get('wFaction')?.valueChanges.subscribe((value) =>{
+      this.selectionForm.get('wKillTeam')?.enable();
     })
 
 
-    this.weaponForm.get('wKillTeam')?.valueChanges.subscribe((value) => {
+    this.selectionForm.get('wKillTeam')?.valueChanges.subscribe((value) => {
       if(value !=''){
-        this.weaponForm.get('wCardType')?.enable();
-        this.weaponForm.get('wCardType')?.enable();
+        this.selectionForm.get('wCardType')?.enable();
+        this.selectionForm.get('wFactionBgd')?.enable();
 
         this.operatives = value.fireteams[0]?.operatives;
         this.ploys = value.ploys.strat.concat(value.ploys.tac);
