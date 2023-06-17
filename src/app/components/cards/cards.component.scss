@@ -1,6 +1,7 @@
 .wrapper {
-  max-width: 1000px;
-  display: grid;
+  display: flex;
+  justify-content: center;
+
 }
 
 .matInput {
@@ -8,6 +9,11 @@
   border-radius: 12px;
   font-size: 16px;
   padding: 5px 0;
+}
+
+.options-card {
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .mat-input:focus {
@@ -19,7 +25,7 @@
 }
 
 .mat-form-field-label {
-  font-family: 'Roboto';
+  font-family: "Roboto";
   color: #7a7a7a; /* Set your desired color here */
   font-size: 16px;
 }

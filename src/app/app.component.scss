@@ -5,6 +5,12 @@
   // align-items: center;
 }
 
+.wrapper{
+  display: flex;
+  // max-width: 1000px;
+  justify-content: center;
+}
+
 span > a{
   color: inherit;
   text-decoration: none;
