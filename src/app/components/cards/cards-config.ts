@@ -9,6 +9,7 @@ export const backgroundImages: any[]= [
   { "value": "death-guard", "label": "Death Guard" },
   { "value": "ecclesiarchy", "label": "Ecclesiarchy" },
   { "value": "forge-world", "label": "Forge World" },
+  { "value": "galactic-republic", "label": "Galactic Republic" },
   { "value": "grey-knights", "label": "Grey Knights" },
   { "value": "greenskins", "label": "Greenskins" },
   { "value": "hive-fleets", "label": "Hive Fleets" },
