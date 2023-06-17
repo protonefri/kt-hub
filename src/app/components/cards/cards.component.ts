@@ -40,6 +40,7 @@ export class CardsComponent implements OnInit {
   card!: Card;
   ploys!: Ploy[];
   equipment!: any;
+  tacops!: any;
 
   constructor(private cardsService: CardsService) {}
 
@@ -53,6 +54,10 @@ export class CardsComponent implements OnInit {
 
   changeEquipment(event: any) {
     this.card.equipment = event;
+  }
+
+  changeTacops(event: any) {
+    this.card.tacops = event;
   }
 
   ngOnInit() {
@@ -74,6 +79,8 @@ export class CardsComponent implements OnInit {
       this.equipment = value.equipments.filter(
         (item: any) => item.eqcategory === 'Equipment'
       );
+      this.tacops = value.tacops;
+      console.log(value);
     });
   }
 

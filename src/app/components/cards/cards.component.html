@@ -70,7 +70,10 @@
 
         <mat-form-field class="">
           <mat-label>Faction background</mat-label>
-          <mat-select placeholder="Faction background" (selectionChange)="updateBckg($event)">
+          <mat-select
+            placeholder="Faction background"
+            (selectionChange)="updateBckg($event)"
+          >
             <mat-option
               *ngFor="let image of backgroundImages"
               [value]="image.value"
@@ -86,9 +89,9 @@
             <mat-option value="operative"> Operative </mat-option>
             <mat-option value="ploy"> Ploy </mat-option>
             <mat-option value="equipment"> Equipment </mat-option>
+            <mat-option value="tacops"> Tac Ops </mat-option>
           </mat-select>
         </mat-form-field>
-
       </div>
     </mat-card>
   </div>
@@ -176,7 +179,7 @@
         </mat-card>
       </div>
     </div>
-
+    <!-- EQUIPMENT -->
     <div
       *ngIf="cardType == 'equipment'"
       class="f-sa"
@@ -204,6 +207,37 @@
             [equipment]="equipment"
             (equipmentEmitter)="changeEquipment($event)"
           ></app-equipment-selection>
+        </mat-card>
+      </div>
+    </div>
+    <!-- TAC OPS -->
+    <div
+      *ngIf="cardType == 'tacops'"
+      class="f-sa"
+      style="margin-top: 1em; margin-bottom: 3em"
+    >
+      <div style="justify-content: center">
+        <mat-card
+          [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
+          style="padding: 1em"
+        >
+          <app-equipment-card
+            [card]="card"
+            [equipment]="equipment"
+            [backgroundColor]="backgroundColor"
+            [fontColor]="fontColor"
+          ></app-equipment-card>
+        </mat-card>
+      </div>
+      <div style="margin-left: 1em">
+        <mat-card style="height: 600px; width: 450px; padding: 1em">
+          <!-- <app-main-stats-form [card]="card"></app-main-stats-form>
+     <app-weapon-form [card]="card"></app-weapon-form> -->
+          <app-tacops-selection
+            [card]="card"
+            [tacops]="tacops"
+            (tacopsEmitter)="changeTacops($event)"
+          ></app-tacops-selection>
         </mat-card>
       </div>
     </div>

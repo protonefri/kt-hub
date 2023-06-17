@@ -11,8 +11,9 @@ export interface Card {
   weapons?: Weapon[],
   abilities?: Abilities[],
   uniqueActions?: UniqueActions[]
-  equipment?:Equipment;
+  equipment?:Equipment,
   ploy?:Ploy;
+  tacops?:Tacops;
   width?:number,
   height?:number,
   svgBckg?:string
@@ -100,3 +101,12 @@ export interface Equipment {
   opid: string;
   eqseq: number;
 }
+
+export interface Tacops {
+  tacopid: string
+  archetype: string
+  tacopseq: number
+  title: string
+  description: string
+}
+
