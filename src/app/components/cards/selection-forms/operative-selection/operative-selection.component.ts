@@ -40,7 +40,6 @@ export class OperativeSelectionComponent implements OnInit {
       };
 
       this.cardsService.updateCard(card);
-      console.log(value);
     });
 
     this.imp = this.allData[2];

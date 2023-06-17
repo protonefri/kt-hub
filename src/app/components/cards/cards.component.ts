@@ -53,14 +53,12 @@ export class CardsComponent implements OnInit {
 
   changeEquipment(event: any) {
     this.card.equipment = event;
-    console.log(this.card.equipment);
   }
 
   ngOnInit() {
     this.cardsService.card$.subscribe({
       next: (data) => {
         this.card = data;
-        console.log(this.allData);
       },
     });
 
@@ -76,7 +74,6 @@ export class CardsComponent implements OnInit {
       this.equipment = value.equipments.filter(
         (item: any) => item.eqcategory === 'Equipment'
       );
-      console.log(this.equipment);
     });
   }
 
