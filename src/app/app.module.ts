@@ -26,6 +26,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { EquipmentCardComponent } from './components/cards/data-cards/equipment-card/equipment-card.component';
 import { EquipmentSelectionComponent } from './components/cards/selection-forms/equipment-selection/equipment-selection.component';
 import { TacopsSelectionComponent } from './components/cards/selection-forms/tacops-selection/tacops-selection.component';
+import { TacopsCardComponent } from './components/cards/data-cards/tacops-card/tacops-card.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TacopsSelectionComponent } from './components/cards/selection-forms/tac
     WeaponsComponent,
     EquipmentCardComponent,
     EquipmentSelectionComponent,
-    TacopsSelectionComponent
+    TacopsSelectionComponent,
+    TacopsCardComponent
   ],
   imports: [
     BrowserModule,

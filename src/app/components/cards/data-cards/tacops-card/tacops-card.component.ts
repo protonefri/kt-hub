@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Card } from '../../card';
 
 @Component({
   selector: 'app-tacops-card',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tacops-card.component.css']
 })
 export class TacopsCardComponent implements OnInit {
+  @Input() card!: Card;
+  @Input() backgroundColor!: string;
+  @Input() fontColor!: string;
 
   constructor() { }
 
