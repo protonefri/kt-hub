@@ -464,6 +464,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 
+.eqtable{
+  margin: 1em 0;
+  font-size: 22px;
+  font-family: 'Oswald';
+  line-height: 24px;
+}
+
+th{
+  font-weight: bold;
+  background-color: lightgray;
+}
+tr th:first-child {
+  text-align: start;
+}
+tr th:not(:first-child),tr td:not(:first-child)  {
+  text-align: center;
+}
+
+
+
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: 'Anton';
