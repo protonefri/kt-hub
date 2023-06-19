@@ -94,7 +94,7 @@ export class CardsComponent implements OnInit {
   }
 
   downloadImage() {
-    html2canvas(this.firstCard.nativeElement).then((canvas) => {
+    html2canvas(this.firstCard.nativeElement, { scale: 1.1 }).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const link = document.createElement('a');
       link.download = 'my-image.png';
