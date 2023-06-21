@@ -15,4 +15,19 @@ export class AbilitiesNotesComponent implements OnInit {
   ngOnInit() {
   }
 
+  abilitiesLength(): boolean {
+    if (this.card?.abilities?.length !== undefined && this.card.abilities.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  uniqueActionsLength():boolean{
+    if (this.card?.uniqueActions?.length !== undefined && this.card.uniqueActions.length > 0) {
+      return true;
+    }
+    return false;
+  }
 }
+
+
