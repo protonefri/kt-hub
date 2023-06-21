@@ -124,7 +124,7 @@
 <!-- FIRST CARD OPERATIVE -->
 <div *ngIf="cardType == 'operative'" class="f-sa wrap">
   <div
-    #firstCard
+    #operativeCard
     style="margin-top: 1em; display: flex; justify-content: center"
   >
     <mat-card
@@ -173,11 +173,12 @@
 <div class="f-sa wrap">
   <!-- OPERATIVE CARD -->
   <div
+  
     *ngIf="cardType == 'ploy'"
     class="f-sa"
     style="margin-top: 1em; margin-bottom: 3em"
   >
-    <div style="justify-content: center">
+    <div style="justify-content: center" #ployCard>
       <mat-card
         [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
         style="padding: 1em"
@@ -205,7 +206,7 @@
     class="f-sa"
     style="margin-top: 1em; margin-bottom: 3em"
   >
-    <div style="justify-content: center">
+    <div style="justify-content: center" #equipmentCard>
       <mat-card
         [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
         style="padding: 1em"
@@ -234,7 +235,7 @@
     class="f-sa"
     style="margin-top: 1em; margin-bottom: 3em"
   >
-    <div style="justify-content: center">
+    <div style="justify-content: center" #tacopsCard>
       <mat-card
         [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
         style="padding: 1em"

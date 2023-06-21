@@ -20,7 +20,11 @@ import { backgroundImages } from './cards-config';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-  @ViewChild('firstCard', { static: false }) firstCard!: ElementRef;
+  @ViewChild('operativeCard', { static: false }) operativeCard!: ElementRef;
+  @ViewChild('ployCard', { static: false }) ployCard!: ElementRef;
+  @ViewChild('equipmentCard', { static: false }) equipmentCard!: ElementRef;
+  @ViewChild('tacopsCard', { static: false }) tacopsCard!: ElementRef;
+
 
   dual: boolean = false;
   allData: any = allData;
@@ -94,13 +98,48 @@ export class CardsComponent implements OnInit {
   }
 
   downloadImage() {
-    html2canvas(this.firstCard.nativeElement, { scale: 1.1 }).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const link = document.createElement('a');
-      link.download = 'my-image.png';
-      link.href = imgData;
-      link.click();
-    });
+    switch(this.cardType)
+    {
+      case "operative":
+      html2canvas(this.operativeCard.nativeElement, { scale: 2.85 }).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.download = 'op-image.png';
+        link.href = imgData;
+        link.click();
+      });
+      break;
+      case "ploy":
+        html2canvas(this.ployCard.nativeElement, { scale: 2.85 }).then((canvas) => {
+          const imgData = canvas.toDataURL('image/png');
+          const link = document.createElement('a');
+          link.download = 'ploy-img.png';
+          link.href = imgData;
+          link.click();
+        });
+        break;
+        case "equipment":
+          html2canvas(this.equipmentCard.nativeElement, { scale: 2.85 }).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'equip-img.png';
+            link.href = imgData;
+            link.click();
+          });
+          break;
+          case "tacops":
+          html2canvas(this.tacopsCard.nativeElement, { scale: 2.85 }).then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'tacop-img.png';
+            link.href = imgData;
+            link.click();
+          });
+          break;
+        default:
+          return;
+    }
+    
   }
 
   typeSelect(value: any) {
