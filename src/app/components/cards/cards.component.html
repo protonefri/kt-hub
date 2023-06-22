@@ -118,7 +118,49 @@
         </mat-select>
       </mat-form-field>
     </div>
+
+    <div *ngIf="cardType == 'operative'">
+      <app-operative-selection
+        [card]="card"
+        [ploys]="ploys"
+        (ployEmitter)="changePloy($event)"
+        [allData]="allData"
+        [operatives]="operatives"
+        [weaponForm]="selectionForm"
+      ></app-operative-selection>
+    </div>
+
+    <div *ngIf="cardType == 'ploy'">
+        <app-ploy-selection
+          [card]="card"
+          [ploys]="ploys"
+          (ployEmitter)="changePloySelect($event)"
+        ></app-ploy-selection>
+    </div>
+
+    <div *ngIf="cardType == 'equipment'">
+        <app-equipment-selection
+          [card]="card"
+          [equipment]="equipment"
+          (equipmentEmitter)="changeEquipment($event)"
+        ></app-equipment-selection>
+    </div>
+
+    <div *ngIf="cardType == 'tacops'">
+        <app-tacops-selection
+          [card]="card"
+          [tacops]="tacops"
+          (tacopsEmitter)="changeTacops($event)"
+        ></app-tacops-selection>
+    </div>
+
   </mat-card>
+</div>
+
+<div *ngIf="cardType == 'operative'" class="f-sa pt-2">
+  <button  mat-raised-button disabled="false" (click)="downloadImage()">
+    Export as Image
+  </button>
 </div>
 
 <!-- FIRST CARD OPERATIVE -->
@@ -143,20 +185,7 @@
     </mat-card>
   </div>
 
-  <div style="margin: 1em">
-    <mat-card style="height: 600px; width: 450px; padding: 1em">
-      <app-operative-selection
-        [card]="card"
-        [ploys]="ploys"
-        (ployEmitter)="changePloy($event)"
-        [allData]="allData"
-        [operatives]="operatives"
-        [weaponForm]="selectionForm"
-      ></app-operative-selection>
-    </mat-card>
-  </div>
-
-  <div style="margin-top: 1em" *ngIf="dual && cardType == 'operative'">
+  <div style="margin-top: 1em;margin-left:1em" *ngIf="dual && cardType == 'operative'">
     <mat-card
       style="padding: 1em"
       [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
@@ -166,11 +195,6 @@
   </div>
 </div>
 
-<div class="f-sa pt-2" >
-    <button mat-raised-button disabled="false" (click)="downloadImage()">Export as Image</button>
-  </div>
-
-<div class="f-sa wrap">
   <!-- OPERATIVE CARD -->
   <div
   
@@ -188,15 +212,6 @@
           [backgroundColor]="backgroundColor"
           [fontColor]="fontColor"
         ></app-ploy-card>
-      </mat-card>
-    </div>
-    <div style="margin-left: 1em">
-      <mat-card style="height: 600px; width: 450px; padding: 1em">
-        <app-ploy-selection
-          [card]="card"
-          [ploys]="ploys"
-          (ployEmitter)="changePloySelect($event)"
-        ></app-ploy-selection>
       </mat-card>
     </div>
   </div>
@@ -219,15 +234,6 @@
         ></app-equipment-card>
       </mat-card>
     </div>
-    <div style="margin-left: 1em">
-      <mat-card style="height: 600px; width: 450px; padding: 1em">
-        <app-equipment-selection
-          [card]="card"
-          [equipment]="equipment"
-          (equipmentEmitter)="changeEquipment($event)"
-        ></app-equipment-selection>
-      </mat-card>
-    </div>
   </div>
   <!-- TAC OPS CARD-->
   <div
@@ -247,14 +253,4 @@
         ></app-tacops-card>
       </mat-card>
     </div>
-    <div style="margin-left: 1em">
-      <mat-card style="height: 600px; width: 450px; padding: 1em">
-        <app-tacops-selection
-          [card]="card"
-          [tacops]="tacops"
-          (tacopsEmitter)="changeTacops($event)"
-        ></app-tacops-selection>
-      </mat-card>
-    </div>
   </div>
-</div>
