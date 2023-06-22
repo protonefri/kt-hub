@@ -104,7 +104,7 @@ export class CardsComponent implements OnInit {
       html2canvas(this.operativeCard.nativeElement, { scale: 2.85 }).then((canvas) => {
         const imgData = canvas.toDataURL('image/png');
         const link = document.createElement('a');
-        link.download = 'op-image.png';
+        link.download = this.card.name+'.png';
         link.href = imgData;
         link.click();
       });
@@ -139,7 +139,7 @@ export class CardsComponent implements OnInit {
         default:
           return;
     }
-    
+
   }
 
   typeSelect(value: any) {

@@ -48,15 +48,12 @@ export class OperativeSelectionComponent implements OnInit {
     this.imp = this.allData[2];
   }
 
-  changeAbility(event:any){
+  changeAbility(event: any) {
     const card: Card = {} as Card;
 
     Object.assign(card, {
-      abilitiesFull : event.value
+      abilitiesFull: event.value,
     });
     this.cardsService.updateCard(card);
-
-    console.log(card);
   }
 }
-
