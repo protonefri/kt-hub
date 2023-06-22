@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Card } from '../../../card';
+import { CardsService } from 'src/app/services/cards.service';
 
 @Component({
   selector: 'app-abilities-notes',
@@ -7,12 +8,13 @@ import { Card } from '../../../card';
   styleUrls: ['./abilities-notes.component.scss']
 })
 export class AbilitiesNotesComponent implements OnInit {
-  @Input() card!: Card;
+  card!: Card;
   @Input() dual:boolean = false;
 
-  constructor() { }
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit() {
+    this.cardsService.card$.subscribe(value=>this.card=value);
   }
 
   abilitiesLength(): boolean {

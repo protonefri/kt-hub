@@ -17,6 +17,7 @@ export class OperativeSelectionComponent implements OnInit {
   @Input() weaponForm!: FormGroup;
   @Input() allData!: any;
   imp: any;
+  @Output() abilityFullEmitter = new EventEmitter();
 
   constructor(private cardsService: CardsService) {}
 
@@ -26,7 +27,9 @@ export class OperativeSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.weaponForm.get('wOperative')?.valueChanges.subscribe((value) => {
-      const card: Card = {
+      const card: Card = {} as Card;
+
+      Object.assign(card, {
         APL: value.APL,
         DF: value.DF,
         GA: value.GA,
@@ -37,11 +40,23 @@ export class OperativeSelectionComponent implements OnInit {
         abilities: value.abilities,
         uniqueActions: value.uniqueactions,
         weapons: value.weapons,
-      };
+      });
 
       this.cardsService.updateCard(card);
     });
 
     this.imp = this.allData[2];
   }
+
+  changeAbility(event:any){
+    const card: Card = {} as Card;
+
+    Object.assign(card, {
+      abilitiesFull : event.value
+    });
+    this.cardsService.updateCard(card);
+
+    console.log(card);
+  }
 }
+

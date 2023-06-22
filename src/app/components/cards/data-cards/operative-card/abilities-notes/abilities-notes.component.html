@@ -2,17 +2,26 @@
   style=" display: flex; flex-direction: column; height: 100%; text-align: justify; text-justify: inter-word; margin-top: 0.5em;"
 >
   <div #row3 class="fill" style="flex: 1">
-    <h2 *ngIf="abilitiesLength()">- Abilities</h2>
-    <ng-container *ngFor="let item of card.abilities">
-      <div style="padding-top: 0.2em;line-height: 20px;">
+    <span *ngIf="card.abilitiesFull == 'nameOnly'" style="padding-top: 0.2em;line-height: 20px;">
+      <span style="font-weight: bold; ">
+        Abilities:
+      </span>
+    </span>
+    <ng-container *ngFor="let item of card.abilities; let i = index">
+      <div *ngIf="card.abilitiesFull == 'full'" style="padding-top: 0.2em;line-height: 20px;">
         <span style="font-weight: bold; ">
           {{ item.title }}
         </span>
-          <span [innerHTML]="' - '+item.description  | symReplace">
+          <span  [innerHTML]="' - '+item.description  | symReplace">
           </span>
       </div>
+      <span *ngIf="card.abilitiesFull == 'nameOnly'" style="padding-top: 0.2em;line-height: 20px;">
+        <span>
+          {{ item.title }}
+          <ng-container *ngIf="card.abilities && i < card.abilities.length - 1">,</ng-container>
+        </span>
+      </span>
     </ng-container>
-    <h2 *ngIf="uniqueActionsLength()">- Unique actions</h2>
     <ng-container *ngFor="let item of card.uniqueActions">
       <div style="padding-top: 0.2em;line-height: 20px;">
         <span  style="font-weight: bold;">

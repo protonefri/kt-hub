@@ -10,6 +10,7 @@ export interface Card {
   wounds: number,
   weapons?: Weapon[],
   abilities?: Abilities[],
+  abilitiesFull: string,
   uniqueActions?: UniqueActions[]
   equipment?:Equipment,
   ploy?:Ploy;

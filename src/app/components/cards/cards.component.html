@@ -178,7 +178,6 @@
         [fontColor]="fontColor"
       ></app-main-stats>
       <app-abilities-notes
-        [card]="card"
         [dual]="dual"
         *ngIf="!dual"
       ></app-abilities-notes>
@@ -190,14 +189,14 @@
       style="padding: 1em"
       [ngStyle]="{ width: card.width + 'px', height: card.height + 'px' }"
     >
-      <app-abilities-notes [card]="card" [dual]="dual"></app-abilities-notes>
+      <app-abilities-notes [dual]="dual"></app-abilities-notes>
     </mat-card>
   </div>
 </div>
 
   <!-- OPERATIVE CARD -->
   <div
-  
+
     *ngIf="cardType == 'ploy'"
     class="f-sa"
     style="margin-top: 1em; margin-bottom: 3em"

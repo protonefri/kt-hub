@@ -16,6 +16,7 @@ export class CardsService {
     save: 0,
     wounds: 0,
     weapons: undefined,
+    abilitiesFull: 'full',
     abilities: undefined,
     uniqueActions: undefined,
     width: 630,
