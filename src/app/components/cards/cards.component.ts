@@ -113,7 +113,7 @@ export class CardsComponent implements OnInit {
         html2canvas(this.ployCard.nativeElement, { scale: 2.85 }).then((canvas) => {
           const imgData = canvas.toDataURL('image/png');
           const link = document.createElement('a');
-          link.download = 'ploy-img.png';
+          link.download = this.card.ploy?.ployname+'.png';
           link.href = imgData;
           link.click();
         });
@@ -122,7 +122,7 @@ export class CardsComponent implements OnInit {
           html2canvas(this.equipmentCard.nativeElement, { scale: 2.85 }).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
             const link = document.createElement('a');
-            link.download = 'equip-img.png';
+            link.download = this.card.equipment?.eqname+'.png';
             link.href = imgData;
             link.click();
           });
@@ -131,7 +131,7 @@ export class CardsComponent implements OnInit {
           html2canvas(this.tacopsCard.nativeElement, { scale: 2.85 }).then((canvas) => {
             const imgData = canvas.toDataURL('image/png');
             const link = document.createElement('a');
-            link.download = 'tacop-img.png';
+            link.download = this.card.tacops?.title+'.png';
             link.href = imgData;
             link.click();
           });
