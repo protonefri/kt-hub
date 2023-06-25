@@ -482,6 +482,9 @@ tr th:not(:first-child),tr td:not(:first-child)  {
   text-align: center;
 }
 
+.noprint{
+  display: none;
+}
 
 
 /* You can add global styles to this file, and also import other style files */

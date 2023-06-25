@@ -7,12 +7,18 @@
   font-size: 1.2em;
   font-family: 'Oswald', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
+  font-size:26px
+
 }
 
 .weapon-stat {
   flex-grow: 1;
   text-align: end;
   width: 30px;
+}
+
+.weapon-row{
+  font-size:26px
 }
 
 .weapon-header {
@@ -38,13 +44,23 @@
   flex-direction: column;
 }
 
+.weapon-inline-row{
+  background-color: rgb(65, 65, 65);
+  color: white;
+  padding: 0.1em 0.3em;
+}
+
 .weapon-profile {
   display: flex;
   align-items: center;
   background-color: rgb(65, 65, 65);
   color: white;
-  padding: 0.3em;
   width: 100%;
+}
+
+.weapon-icon{
+  height: 22px;
+  flex: 0 0 auto;
 }
 
 .weapon-profile-name {

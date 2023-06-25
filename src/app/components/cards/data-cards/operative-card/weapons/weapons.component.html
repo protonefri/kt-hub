@@ -1,8 +1,7 @@
-<div class="w-100" *ngFor="let item of card.weapons" style="font-size:1.2em; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+<div class="w-100 weapon-row" *ngFor="let item of card.weapons" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div
     *ngIf="item.profiles.length > 1"
-    class="d-flex w-100"
-    style="background-color: rgb(65, 65, 65); color: white; padding: 0.3em; width: 100%"
+    class="d-flex w-100 weapon-inline-row"
   >
     <div class="w-100">
       <img
@@ -12,10 +11,7 @@
             : '/assets/pics/weptypeR.png'
         "
         alt="Weapon Type"
-        style="
-          height: 20px;
-          flex: 0 0 auto;
-        "
+        class="weapon-icon"
       />
       <span style="width: 100%; padding-left: 0.3em">
         {{ item.wepname }}
@@ -47,12 +43,9 @@
   </div>
   <div
     *ngIf="item.profiles.length === 1"
-    class="d-flex align-items-center w-100"
+    class="d-flex align-items-center w-100 weapon-inline-row"
     style="
       display: flex;
-      background-color: rgb(65, 65, 65);
-      color: white;
-      padding: 0.3em;
     "
   >
     <img
@@ -62,10 +55,8 @@
           : '/assets/pics/weptypeR.png'
       "
       alt="Weapon Type"
-      style="
-        height: 20px;
-        flex: 0 0 auto;
-      "
+      class="weapon-icon"
+
     />
     <span style="flex-grow: 10; width: 4em; padding-left: 0.5em"
       >{{ item.wepname
