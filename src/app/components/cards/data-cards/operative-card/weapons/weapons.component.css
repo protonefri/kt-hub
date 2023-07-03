@@ -18,14 +18,14 @@
 }
 
 .weapon-row{
-  font-size:26px
+  font-size:32px
 }
 
 .weapon-header {
   display: flex;
   background-color: rgb(65, 65, 65);
   color: white;
-  padding: 0.3em;
+  padding: 0.5em;
   width: 100%;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .weapon-icon{
-  height: 22px;
+  height: 30px;
   flex: 0 0 auto;
 }
 
