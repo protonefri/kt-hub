@@ -486,6 +486,11 @@ tr th:not(:first-child),tr td:not(:first-child)  {
   display: none;
 }
 
+.space li{
+  padding-top: 1em;
+}
+
+strong{font-weight: bold!important;}
 
 /* You can add global styles to this file, and also import other style files */
 @font-face {
