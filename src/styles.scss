@@ -486,8 +486,21 @@ tr th:not(:first-child),tr td:not(:first-child)  {
   display: none;
 }
 
-.space li{
+.space ul{
   padding-top: 1em;
+}
+
+.space li{
+  padding-bottom: 1em;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+em{
+  display: block;
+  text-align: center;
+  padding-bottom: 1em;
+  font-weight: bold;
 }
 
 strong{font-weight: bold!important;}
