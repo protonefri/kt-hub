@@ -492,8 +492,17 @@ tr th:not(:first-child),tr td:not(:first-child)  {
 
 .space li{
   padding-bottom: 1em;
-  list-style-position: inside;
-  list-style-type: disc;
+}
+
+li{
+  list-style-type: none;
+}
+
+ul li:before {
+  color: rgb(0, 0, 0);
+  content: "▪";
+  margin-left: 0px;  /* this is to move the icon left */
+  padding-right: 10px; /* to keep some space between icon and text */
 }
 
 em{
