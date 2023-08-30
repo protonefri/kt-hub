@@ -27,6 +27,8 @@ import { EquipmentCardComponent } from './components/cards/data-cards/equipment-
 import { EquipmentSelectionComponent } from './components/cards/selection-forms/equipment-selection/equipment-selection.component';
 import { TacopsSelectionComponent } from './components/cards/selection-forms/tacops-selection/tacops-selection.component';
 import { TacopsCardComponent } from './components/cards/data-cards/tacops-card/tacops-card.component';
+import { NarrativeCampaignComponent } from './components/narrative-campaign/narrative-campaign.component';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { TacopsCardComponent } from './components/cards/data-cards/tacops-card/t
     EquipmentCardComponent,
     EquipmentSelectionComponent,
     TacopsSelectionComponent,
-    TacopsCardComponent
+    TacopsCardComponent,
+    NarrativeCampaignComponent
   ],
   imports: [
     BrowserModule,
